@@ -13,11 +13,35 @@ const rl = readline.createInterface({
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
+ if (hand1 === hand2) {
+    return 'The game is a tie!';
+  } // closing if tie clause!!!
+    
+  else if (hand1 === 'rock') {
+    if (hand2 === 'paper') {
+       return 'Player2 Won!';
+    } else {
+       return 'Player1 won!';
+   } 
+  } // Rock and Paper Logic
+  
+  else if (hand1 === 'scissors') {
+    if (hand2 === 'rock') {
+      return 'Player2 won!';
+    } else {
+      return 'Player1 won!';
+    }
+  } // Scissors and Rock Logic 
 
-  // Write code here
-  // Use the unit test to see what is expected
+  else if (hand1 === 'paper') {
+    if (hand2 === 'scissors') {
+      return 'player2 won!';
+    } else {
+      return 'Player1 won!';  
+    }
+   } // Paper and Scissors Logic
+  } // Ending Working Logic with the ACC code
 
-}
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -37,7 +61,7 @@ function getPrompt() {
 if (typeof describe === 'function') {
 
   // most are notes for human eyes to read, but essentially passes in inputs then compares if the function you built return the expected output.
-  describe('rockPaperScissors', () => {
+  describe('#rockPaperScissors()', () => {
     it('should detect a tie', () => {
       assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
       assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
